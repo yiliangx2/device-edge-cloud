@@ -1,0 +1,81 @@
+evidence_id,source_id,变量,原始值,单位,场景,页码或表号,证据类型,directness,适用限制,项目转换规则
+E001,S01,端到端时延,"0.5 ms、1 ms、2 ms等",ms,工业运动控制,Table 5.2-1 pp.15-17,规范标准,D,对应特定运动控制通信链路,构成超硬实时0.5-10ms档的直接锚点
+E002,S01,端到端时延,1-50,ms,移动机器人,Table 5.2-1 pp.16-17 / Annex A.2.2.3,规范标准,D,表中多组移动机器人用例的范围,与其他来源共同定义超硬/强实时边界
+E003,S01,设备数量,不超过2000,UE,移动机器人,Table 5.2-1 p.16,规范标准,D,UE数量并不等于AGV数量,仅作为并发设备极端上限且标hard case
+E004,S01,消息大小,40-250,byte,一般移动控制,Table 5.2-1 p.16,规范标准,D,特定移动控制通信链路,纳入控制报文40-500B范围
+E005,S01,协同搬运规模,2-8,设备,协同搬运,Annex A.2.2.5-1,规范标准,D,仅适用于协同搬运用例,作为低规模AGV直接锚点
+E006,S01,协同搬运消息大小,250/500,byte,协同搬运,Annex A.2.2.5-1,规范标准,D,两种方向或通信流,纳入控制报文上界
+E007,S01,通信可用性,99.9999及以上,percent,时间关键工业通信,Table 5.2-1,规范标准,D,不同用例具体目标不同,仅用于通信可用性而非任务成功率
+E008,S01,传输周期,0.5-50,ms,运动控制与移动机器人,Table 5.2-1,规范标准,D,transfer interval不是E2E latency,独立保存到transfer_interval_ms
+E009,S02,控制消息大小,64-256,byte,工业控制,Annex A tables 4-12,白皮书用例值,D,5G-ACIA示例工厂流量模型,纳入控制报文40-500B范围
+E010,S02,移动机器人视频码率,每个HD流约8,Mbit/s,移动机器人,Annex A.1.4 / mobile robot,白皮书用例值,D,依赖编码和分辨率,连续视频采样时围绕3-10+Mbps并保留编码条件
+E011,S02,移动机器人综合上行流量,约9.05,Mbit/s,移动机器人,Annex A.1.4,白皮书用例值,D,特定示例而非普适值,作为中等视频/遥测组合锚点
+E012,S02,控制到控制报文,6.25/31.25,kB,控制到控制,Annex A.1.7,白皮书用例值,D,特定控制链路,归入聚合控制或中等报文而非一般小控制包
+E013,S02,控制到控制综合码率,约62/500,Mbit/s,控制到控制,Annex A.1.7,白皮书用例值,D,特定传输周期与报文组合,作为高码率工业通信边界
+E014,S02,过程控制报文,128-256,byte,过程监测/控制,Annex A.1.3/A.1.6,白皮书用例值,D,过程控制示例,纳入控制报文范围
+E015,S02,过程控制传输周期,200-500,ms,过程监测/控制,Annex A.1.3/A.1.6,白皮书用例值,D,是传输周期而非deadline,单独保存
+E016,S02,工厂AGV规模,8/40,AGV,示例工厂/入厂物流,Annex A.2,白皮书用例值,D,示例工厂参数,支持低/中规模配额而非硬阈值
+E017,S03,AGV控制时延,约5,ms,AGV控制,AGV use case section,白皮书用例值,D,特定部署示例,用于超硬实时AGV样本
+E018,S03,图像上行码率,3-8,Mbit/s,AGV/工业视觉,AGV and video use cases,白皮书用例值,D,依赖视频配置,纳入连续视频下部范围
+E019,S03,遥控码率,约0.1,Mbit/s,远程控制,remote control use case,白皮书用例值,D,控制流而非视频流,与视频数据分开采样
+E020,S03,本地性与隐私,敏感数据可留在厂区边缘,qualitative,工业边缘部署,p.32,白皮书用例值,D,不给出隐私等级数值,用于高隐私数据驻留联合约束
+E021,S04,包时延预算,10,ms,离散自动化示例,Table 1,白皮书用例值,D,5QI/QoS示例,用于强实时/超硬实时QoS目标
+E022,S04,包错误率,1e-4,ratio,离散自动化示例,Table 1,白皮书用例值,D,PER不是服务可用性或任务失败率,独立保存为通信可靠性相关指标
+E023,S04,最大数据突发量,255/1354,byte,离散自动化示例,Table 1,白皮书用例值,D,特定QoS流,作为小控制报文突发锚点
+E024,S04,QoS参数,"5QI/PDB/PER/GFBR/MFBR/优先级",qualitative,工业5G,Sections 3-4,白皮书用例值,D,参数含义不同不得互换,映射为多个独立QoS目标字段
+E025,S05,雾计算特性,"低时延、位置感知、广泛分布、异构和联邦",qualitative,IoT/雾计算,conceptual model,规范标准,D,概念模型不给固定数值阈值,支持端边云状态字段与分层策略
+E026,S06,边缘隐私,连续IoT数据流在边缘处理仍有隐私风险,qualitative,IoT边缘,Abstract and methodology,论文实验设置,D,隐私等级需结合项目数据分类,支持隐私过滤与本地处理要求
+E027,S07,数据分类分级,按行业领域和影响程度并采用就高原则,qualitative,数据安全,标准信息及规则,规范标准,D,标准全文不在附件包中,工业数据类型到等级的映射标记为项目推导
+E028,S08,MAPF网格规模,8/16/32等,N,MAPF benchmark,benchmark discussion,论文实验设置,D,开放网格只是基准类型,用于低规模地图候选且加入仓库结构约束
+E029,S08,大型DAO地图,可达1000×1000以上,grid cells,MAPF benchmark,benchmark discussion,论文实验设置,D,基准地图不代表典型工厂,只用于高/极端hard case
+E030,S09,代理数量,最多1000,agent,大型仓库MAPF,Experiments pp.8,论文实验设置,D,模拟可扩展性上限,201-1000仅分配给极端hard case
+E031,S09,代理占用率,约38.9,percent,大型仓库MAPF,Experiments,论文实验设置,D,特定仓库图和实验配置,occupancy_ratio采样不得直接推广到所有地图
+E032,S10,JSSP规模,最高100×20,jobs×machines,JSSP benchmark,benchmark tables,论文实验设置,D,经典JSSP基准,支持调度中等规模上界
+E033,S11,FJSP工作中心实例,10-100,jobs,FJSP with work centers,pp.20-21,论文实验设置,D,该来源直接值,用于低/中调度规模
+E034,S11,工作中心数量,5-15,work centers,FJSP with work centers,pp.20-21,论文实验设置,D,不能改写成20-60 machines,保留work_centers独立字段
+E035,S11,每job工序数,5,operations/job,FJSP with work centers,pp.20-21,论文实验设置,D,特定实例生成器,用于计算total_operations
+E036,S11,加工时间分布,Uniform[10/30],time units,FJSP with work centers,pp.20-21,论文实验设置,D,单位取决于基准定义,不用于实时deadline
+E037,S12,大型JSSP规模,10×10至1000×1000,jobs×machines,large-scale JSSP,benchmark definition,论文实验设置,D,极端基准而非典型车间,101以上标高/极端并限制占比
+E038,S12,最大工序量,1000000,operations,large-scale JSSP,benchmark definition,论文实验设置,D,仅用于规模压力测试,100000以上优先hard case
+E039,S13,任务输入量,5000,kB,人脸识别卸载实验,Numerical results,论文实验设置,D,特定人脸识别实验,仅作为卸载绝对输入量候选
+E040,S13,任务工作负载,1000,Megacycles,人脸识别卸载实验,Numerical results,论文实验设置,D,不跨硬件泛化,用于高计算强度候选并结合deadline比值
+E041,S13,端侧算力,"0.5/0.8/1.0",GHz,多用户卸载实验,Numerical results,论文实验设置,D,移动设备实验配置,用于端侧算力候选而非行业标准
+E042,S13,云侧分配算力,10,GHz,多用户卸载实验,Numerical results,论文实验设置,D,实验配置,用于端云算力差异样本
+E043,S14,卸载任务模型,"输入bit、deadline、cycles/bit",tuple,移动边缘计算,computation offloading model,论文实验设置,D,建模惯例不是数值标准,定义数据量/实时性/计算强度三个独立原始量
+E044,S16,资产监测图像消息,4,MB,资产监测,Requirements p.4,白皮书用例值,D,特定图像监测任务,形成图像帧0.1-4MB上界
+E045,S16,实时视频,"10 Mbit/s、4 MByte payload",mixed,远程操作,Requirements p.7,白皮书用例值,D,码率与payload是不同指标,分别存bitrate_mbps和message/frame_bytes
+E046,S16,碰撞预测时延,小于33,ms,碰撞预警,Requirements p.13,白皮书用例值,D,特定碰撞预测流,用于AGV强实时样本
+E047,S16,碰撞预测消息,小于100,byte,碰撞预警,Requirements p.13,白皮书用例值,D,跟踪与告警消息,纳入小控制报文
+E048,S16,AGV数量,5-100,AGV,AGV导航/移动机器人,Requirements p.14,白皮书用例值,D,白皮书用例范围,用于低/中/高AGV规模
+E049,S16,导航控制时延,7,ms,自主导航,Requirements p.16,白皮书用例值,D,控制数据链路,用于超硬实时AGV任务
+E050,S16,导航控制消息,50,byte,自主导航,Requirements p.17,白皮书用例值,D,控制数据,纳入控制报文下部
+E051,S16,融合3D/RGB数据,"1.6-2 MB、300-500 Mbit/s",mixed,自主导航,Requirements p.16,白皮书用例值,D,特定融合感知容器,用于点云/融合感知超大数据档
+E052,S16,原始相机带宽,大于2.5,Gbit/s,机器视觉,p.24-25,白皮书用例值,D,原始或低预处理相机头,仅用于机器视觉极端带宽hard case
+E053,S17,工业终端数量,60-140,terminal,工业多服务器卸载,Table 4,论文实验设置,D,合成工业互联网实验,纳入高并发卸载候选
+E054,S17,边缘服务器数量,3-9,server,工业多服务器卸载,Table 4,论文实验设置,D,论文仿真设置,用于边缘node_count
+E055,S17,端侧CPU频率,3,GHz,工业多服务器卸载,Table 4,论文实验设置,D,仿真设置,不得称为通用端侧能力
+E056,S17,边缘CPU频率,10,GHz,工业多服务器卸载,Table 4,论文实验设置,D,仿真设置,不得称为通用边缘能力
+E057,S17,边缘存储,1024,MB,工业多服务器卸载,Table 4,论文实验设置,D,论文仿真设置,用于资源受限边缘候选
+E058,S17,无线带宽,20,MHz,工业多服务器卸载,Table 4,论文实验设置,D,无线系统带宽而非应用吞吐,不得直接填入uplink_mbps
+E059,S17,无线速率实验范围,6-15,M/s,工业多服务器卸载,Figure 9 discussion,论文实验设置,D,原文单位按论文记录,单位换算前需复核全文
+E060,S18,任务数量,10-100,task,智能生产线,Section 5.2,论文实验设置,D,生产线云雾任务调度实验,支持低/中任务规模
+E061,S18,雾节点数量,"5/10/20",node,智能生产线,Section 5.2,论文实验设置,D,仿真设置,用于边缘node_count候选
+E062,S18,雾间传输速率,3,M/s,智能生产线,Section 5.1,论文实验设置,D,仿真链路,作为相对低速网络样本
+E063,S18,云雾传输速率,10,M/s,智能生产线,Section 5.1,论文实验设置,D,仿真链路,作为云雾链路候选
+E064,S18,QoS目标,"最大完成时间、能耗、任务完成率",qualitative,智能生产线,Sections 5.2.1-5.2.3,论文实验设置,D,论文评价目标,映射到QoS目标列表
+E065,S19,AGV数量,"2/4/6/8/10",AGV,多AGV卸载,Section 5 experiments,论文实验设置,D,论文仿真设置,支持低规模AGV
+E066,S19,单AGV任务量,"200/300/500",kB,多AGV卸载,Section 5 / Table 2,论文实验设置,D,论文中称任务量/携带任务,保留为input_bytes候选并复核语义
+E067,S19,边缘计算上限,"50/60/70/80/90",kB/min,多AGV卸载,Section 5 / Table 2,论文实验设置,D,论文自定义处理能力单位,不可换成GHz
+E068,S19,边缘服务器数量,4-7,server per route,多AGV卸载,Section 5 experiments,论文实验设置,D,每条AGV路径经过的服务器数,用于移动卸载可达边缘节点数
+E069,S20,设备数量,60-120,device,MEC卸载,Table 1,论文实验设置,D,特定拥塞感知卸载实验,支持高并发卸载候选
+E070,S20,输入数据量,800-6000,kB,MEC卸载,Table 1,论文实验设置,D,实验范围,纳入中/大任务输入量候选
+E071,S20,本地工作负载,150-1000,Megacycles,MEC卸载,Table 1,论文实验设置,D,实验范围,结合deadline计算local_time_deadline_ratio
+E072,S01,实时性分档,"0.5-10/10-50/50-500/500-5000/>5000",ms,跨工业场景,由S01/S02/S03/S16归纳,项目推导,I,不是单一标准表的原始分档,所有样本保存原始deadline并由脚本派生标签
+E073,S16,数据形态分档,"40-500B控制、0.5-32KB遥测、0.1-4MB图像、3-500Mbps视频/融合感知",mixed,跨工业场景,由S01/S02/S16归纳,项目推导,I,不同形态单位不可混用,分别保存message/frame/bitrate字段
+E074,S13,计算强度分档,"T_local/deadline ≤0.25/0.75/1.5",ratio,跨计算任务,由S13/S14/S20归纳,项目推导,I,相对指标需本地运行估计,优先使用比值而非绝对cycles
+E075,S17,资源负载分档,"<50/50-75/75-90/>90",percent,端边云节点,项目指南与论文负载讨论,项目推导,I,75%来自项目指南其余为采样政策,标签同时用queue_wait/deadline校正
+E076,S03,网络状态分档,"net_time/deadline与available/required bandwidth的比值",ratio,端边云网络,由S01/S03/S16/S17归纳,项目推导,I,绝对RTT不能跨deadline直接比较,按两个比值联合派生优/良/退化/不可行
+E077,S06,隐私分档,"低/中/高/受限",level,工业数据,由S03/S06/S07归纳,项目推导,I,具体工业数据到等级的映射不是标准原文,保留data_category和data_residency并采用就高原则
+E078,S17,边缘分配算力采样范围,8-80,Gcycles/s,工业边缘任务执行,由S17 Table 4的10GHz边缘CPU并结合S18/S19多节点实验扩展,项目推导,I,表示单任务可获得的逻辑计算能力而非行业统一硬件规格,与workload_mcycles共同计算edge_compute_ms
+E079,S13,云端分配算力采样范围,100-1000,Gcycles/s,云端并行任务执行,由S13云侧分配算力并结合多核并行资源作项目扩展,项目推导,I,表示多核或并行资源的聚合逻辑能力且不得称为单核频率,与workload_mcycles共同计算cloud_compute_ms
+E080,S14,边缘和云端预计完成时间,"传输序列化+网络排队+RTT+节点排队+计算时间",ms,端边云卸载决策,通信计算权衡模型并结合S13/S17实验变量,项目推导,I,用于规则标签阶段的近似可行性判断而非真实系统测量,公式和各分量保存在estimated_completion_time_sampling_v1.md及追溯CSV
